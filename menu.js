@@ -21,19 +21,21 @@
 			var data = JSON.parse(this.responseText);
 			var table = document.querySelector('#menu');
 			for (var i = 1; i <= data.length; i++) {
-				var tr = document.createElement('tr');
-				var num = document.createElement('td');	
-				var name = document.createElement('td');
-				var price = document.createElement('td');
-				
-				num.innerHTML = (i + 1);
-				name.innerHTML = data[i].name;
-				price.innerHTML = data[i].price;
-				
-				table.appendChild(tr);
-				tr.appendChild(num);
-				tr.appendChild(name);
-				tr.appendChild(price);
+				if (data[i].name !== "") {
+					var tr = document.createElement('tr');
+					var num = document.createElement('td');	
+					var name = document.createElement('td');
+					var price = document.createElement('td');
+					
+					num.innerHTML = (i + 1);
+					name.innerHTML = data[i].name;
+					price.innerHTML = data[i].price;
+					
+					table.appendChild(tr);
+					tr.appendChild(num);
+					tr.appendChild(name);
+					tr.appendChild(price);
+				}
 			}
 		} else {
 			console.log('There was an error: ' + this.status);
