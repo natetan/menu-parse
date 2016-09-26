@@ -7,7 +7,7 @@ $items = explode("\n", file_get_contents("menu.txt"));
 $data;
 foreach ($items as $item) {
 	$contents = explode("|", $item);
-	$data = array(
+	$data[] = array(
 		"name" => $contents[0],
 		"price" => $contents[1]
 	);
